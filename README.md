@@ -29,7 +29,21 @@ Three places, depending on what you're looking for:
 
 - **The headline numbers** (cost, turns, tokens for all 40 runs, one row per run): [`results_table.tsv`](results_table.tsv) — a tab-separated table that opens directly in Excel, Numbers, or Google Sheets.
 - **The raw receipts** (exact token/cost breakdown per run, straight from Claude Code): [`results/`](results/) — one JSON file per run, named `<task>__<model>__rep<n>.json`. The `usage` and `total_cost_usd` fields are the meter.
-- **What each model actually produced** (the blog posts, cleaned CSVs, fixed code): [`run_outputs/`](run_outputs/) — one folder per run. Compare Haiku's article to Fable's, or diff two models' bug fixes. (Q&A folders are empty by design — that task wrote no files; its answers are in the `result` field of the JSONs.)
+- **What each model actually produced** (the blog posts, cleaned CSVs, fixed code): [`run_outputs/`](run_outputs/) — one folder per run. Compare Haiku's article to Fable's, or diff two models' bug fixes.
+
+### What each task was required to produce
+
+The prompts (in [`prompts/`](prompts/), verbatim) pin the **same output filenames for every model**, so outputs are directly comparable across models — and those filenames are exactly what `run_one.sh` checks to verify success.
+
+| Task | The ask | Required output | Success check |
+|---|---|---|---|
+| `qa` | Explain prompt caching in ~150 words | **None — the prompt forbids it**: "do not use any tools or write any files." The answer is in the `result` field of the run's JSON. | n/a |
+| `writing` | ~900-word blog post from a brief | `article.md` | file exists, non-empty |
+| `data` | Clean + analyze a messy sales CSV | `cleaned_sales.csv`, `summary.md` | both files non-empty |
+| `coding` | Fix planted bugs in a small library | edits `inventory.py` / `report.py` in place | full test suite passes |
+| `coding-hard` | Implement a log query engine from spec | fills in `logquery.py` in place | all tests pass |
+
+(Anything else you see in a `run_outputs/` folder — helper scripts, scratch files — is whatever that particular model chose to create along the way. The occasional `clean_sales.py` is the model's own working code, and one Haiku run even built itself a Python venv, which is excluded here for size.)
 
 ## What's in here
 
