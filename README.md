@@ -23,6 +23,14 @@ Sonnet 5's sticker price is $3/$15 per million tokens (input/output) vs. Opus 4.
 
 Full analysis with tables and caveats: [REPORT.md](REPORT.md).
 
+## Where's the data?
+
+Three places, depending on what you're looking for:
+
+- **The headline numbers** (cost, turns, tokens for all 40 runs, one row per run): [`results_table.tsv`](results_table.tsv) — a tab-separated table that opens directly in Excel, Numbers, or Google Sheets.
+- **The raw receipts** (exact token/cost breakdown per run, straight from Claude Code): [`results/`](results/) — one JSON file per run, named `<task>__<model>__rep<n>.json`. The `usage` and `total_cost_usd` fields are the meter.
+- **What each model actually produced** (the blog posts, cleaned CSVs, fixed code): [`run_outputs/`](run_outputs/) — one folder per run. Compare Haiku's article to Fable's, or diff two models' bug fixes. (Q&A folders are empty by design — that task wrote no files; its answers are in the `result` field of the JSONs.)
+
 ## What's in here
 
 ```
@@ -30,6 +38,7 @@ run_one.sh            # the harness — runs one (task × model × rep) cell
 prompts/              # the 5 task prompts, verbatim
 fixtures/             # task inputs: buggy Python lib + tests, parser spec tests, messy CSV
 results/              # raw Claude Code result JSON per run (tokens, cost, turns, timing)
+run_outputs/          # what each run produced: articles, cleaned CSVs, fixed code
 results_table.tsv     # all 40 runs, parsed into one table
 manifest.jsonl        # verification outcome per run (did the task actually succeed)
 analyze.py            # pricing math: input + cache writes (1.25×/2×) + cache reads (0.1×) + output
