@@ -1,0 +1,7 @@
+This directory contains logquery.py, a skeleton module for a small log query engine, and a unittest suite in tests/ that defines the exact required behavior. The module docstring specifies the query language.
+
+Implement all functions currently raising NotImplementedError (tokenize, parse, match, aggregate, top_n) so that the entire test suite passes.
+
+Run the tests with: python3 -m unittest discover -s tests
+
+Do not modify any file in tests/. When all tests pass, stop and briefly summarize your implementation.

@@ -1,0 +1,1 @@
+In about 150 words, explain what prompt caching is in large language model APIs, why cached input tokens are billed at a discount, and one practical thing an app developer should do to benefit from it. Answer directly in your response — do not use any tools or write any files.

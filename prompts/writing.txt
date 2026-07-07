@@ -1,0 +1,5 @@
+Write a blog post of roughly 900 words and save it to article.md in this directory.
+
+Brief: The post is for a general audience of small-business owners who are curious about AI assistants but haven't used one beyond casual chatting. Title it "Five Real Ways Small Businesses Are Using AI Assistants This Year". Cover five concrete use cases (customer email drafting, bookkeeping cleanup, marketing copy, meeting notes/summaries, and simple data questions), each with a short realistic example. Tone: warm, practical, no hype, no jargon. End with a short section on where to start. Use markdown headings.
+
+Write the article directly to article.md, then stop.

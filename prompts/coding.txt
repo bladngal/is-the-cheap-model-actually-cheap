@@ -1,0 +1,5 @@
+This directory contains a small Python inventory library (inventory.py, report.py) with a unittest test suite in tests/. Several tests are currently failing because of bugs in the source code.
+
+Run the test suite with: python3 -m unittest discover -s tests
+
+Fix the bugs in inventory.py and report.py until ALL tests pass. Do not modify any file in tests/ — the tests define the correct behavior. When all tests pass, stop and briefly summarize what you fixed.

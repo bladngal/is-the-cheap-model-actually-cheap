@@ -1,0 +1,7 @@
+This directory contains sales_data.csv, a messy export from a sales system. Problems include: exact duplicate rows, inconsistent date formats (ISO, M/D/YYYY, "D Mon YYYY", MM-DD-YYYY), inconsistent category capitalization/whitespace, missing region values, and missing units_sold or unit_price on some rows.
+
+Clean it and analyze it:
+1. Write cleaned_sales.csv with: duplicates removed, all dates normalized to YYYY-MM-DD, category names normalized to title case and trimmed, region normalized to title case with missing regions set to "Unknown", and rows missing units_sold OR unit_price dropped.
+2. Write summary.md containing: total rows kept and dropped, total revenue (units_sold * unit_price), revenue by category (sorted descending), and revenue by month.
+
+Use Python for the processing. When both files are written and correct, stop and briefly summarize the results.
